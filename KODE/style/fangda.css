@@ -1,0 +1,92 @@
+.dangqian{
+    height: 40px;
+}
+.dangqian ul li{
+    float: left;
+    line-height: 40px;
+    margin-left: 40px;
+    font-size: 12px;
+}
+
+#rt{
+    width: 720px;
+    height: 550px;
+    float: right;
+    margin-top: -560px;
+}
+#rt #cuxiao li{
+    float: left;
+    margin-left: 10px;
+}
+#rt #cuxiao li:nth-child(1){
+    font-size: 11px;
+}
+#rt #cuxiao li:nth-child(2){
+    font-size: 15px;
+    color: #ff6600;
+}
+#rt #cuxiao li:nth-child(3){
+    font-size: 11px;
+    background: #ff6600;
+    color: #fff;
+}
+#rt #cuxiao li:nth-child(4){
+    font-size: 11px;
+}
+
+#jinkou li{
+    float: left;
+    font-size: 11px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+#jinkou li a{
+    color: #90c31f;
+}
+
+#fahuo{
+    margin-top: 9px;
+}
+#fahuo li{
+    float: left;
+    font-size: 11px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+#fahuo li a{
+    color: #90c31f;
+}
+
+#cu{
+    margin-top: 20px;
+    font-size: 11px;
+}
+#cu li{
+    float: left;
+    margin-left: 10px;
+}
+#cu li:nth-child(2){
+    background: #ff6600;
+    color: #fff;
+}
+#cu li:nth-child(3){
+    color: #ff6600;
+}
+
+#bianhao{
+    margin-top: 11px;
+    font-size: 11px;
+}
+#bianhao li{
+    float: left;
+    margin-left: 10px;
+}
+#bianhao li:nth-child(3){
+    margin-left: 50px;
+}
+
+#slh{
+    margin-top: 20px;
+    margin-left: 10px;
+    color: #cccccc;
+}

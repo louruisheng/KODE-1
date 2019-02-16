@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../style/login_style.css"/>
+		<link rel="stylesheet" href="../style/footer.css">
+	</head>
+	<body>
+		<!--head-->
+		<div class="top"></div>
+		<!--middle-->
+		<div class="mid">
+			<div class="mid_in_top"></div>
+			<div class="mid_in_bottom"></div>
+			<div class="login_box">
+				<div class="login_top">
+					<ul>
+						<li>手机号注册</li>
+						<li>已有账号登录</li>
+					</ul>
+				</div>
+				<form action="../php/register.php" method="get" class="login_show">
+					<input type="text" name="uname1" id="uname_regist" placeholder="手机号/邮箱/用户名" />
+					<input type="text" name="uiphone" id="uiphone" placeholder="短信验证码"/><input type="button" value="获取验证码" id="randNum"/>
+					<input type="password" name="upwd1" id="upwd1" placeholder="密码"/>
+					
+					<p><a href="">找回密码</a>
+					<a href="">注册账号</a></p>
+					
+					<input type="submit" value="注册" id="btn"/>
+				</form>
+
+				<span><p>合作网站账号登录</p></span>
+				<ul class="outweb">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<p>登录代表您已同意《<a href="">可得眼镜网</a>》</p>
+			</div>
+		</div>
+		<!--footer-->
+		<!-- 尾部 -->
+		<div id="footer">
+				<ul id="footer_1">
+					<li><img src="img/footer-1.gif" alt=""></li>
+				</ul>
+				<ul id="footer_2">
+					<li>
+						<h3>关于可得</h3>
+						<p><a href="#">公司简介</a></p>
+						<p><a href="#">诚聘英才</a></p>
+						<p><a href="#">媒体报道</a></p>
+					</li>
+					<li>
+						<h3>新手指南</h3>
+						<p><a href="#">热点问题</a></p>
+						<p><a href="#">会员优惠</a></p>
+						<p><a href="#">礼券号使用</a></p>
+					</li>
+					<li>
+						<h3>配镜指南</h3>
+						<p><a href="#">读懂验光单</a></p>
+						<p><a href="#">如何选购隐形眼镜</a></p>
+						<p><a href="#">眼镜学堂</a></p>
+					</li>
+					<li>
+						<h3>支付配送</h3>
+						<p><a href="#">货到付款</a></p>
+						<p><a href="#">支付方式</a></p>
+					</li>
+					<li>
+						<h3>售后服务</h3>
+						<p><a href="#">7天随心退换货服务</a></p>
+						<p><a href="#">如何办理退换货、退款</a></p>
+						<p><a href="#">投诉建议</a></p>
+					</li>
+					<li>
+						<h3>帮助</h3>
+						<p><a href="#">找回密码</p>
+						<p><a href="#">联系我们</p>
+						<p><a href="#">快递查询</p>
+					</li>
+				</ul>
+		
+				<ul id="footer_3">
+					<h3><a href="#">上海可得光学科技有限公司</a></h3>
+					<!-- <li id="l"><a href="#">联系我们</a></li>
+					<li><a href="#">友情链接</a></li>
+					<li><a href="#">眼镜百科</a></li>
+					<li><a href="#">网站地图</a></li>
+					<li><a href="#">隐私安全</a></li> -->
+					<li>
+						<a href="">联系我们</a>
+						<a href="">友情链接</a>
+						<a href="">眼镜百科</a>
+						<a href="">网站地图</a>
+						<a href="">隐私安全</a>
+					</li>
+					<h3><img src="img/hui.jpg" alt=""></h3>
+					<h3><a href="#"><img src="img/tu_.jpg" alt=""></a></h3>
+				</ul>
+			</div>
+	</body>
+</html>
+<script src="../libs/jquery.min.js"></script>
+<script src="../libs/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+<script src="../libs/login.js" type="text/javascript" charset="utf-8"></script>

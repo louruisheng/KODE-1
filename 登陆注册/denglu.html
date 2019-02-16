@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>登陆</title>
+      <link rel="stylesheet" href="../style/table.css">
+</head>
+<body>
+
+      <div class="table-container" action="../php/register.php" method="get">
+           <div class="button-wrap">
+                 <button class="active">扫描登陆</button>
+                 <button>账号登陆</button>
+           </div> 
+           <div class="content-wrap">
+                  <div class="content-box active">
+                  	<img src="../img/erweima.jpg">
+                  </div>
+                  <div class="content-box">
+                  	<form id="register_form">
+            <div class="form-group">
+                  <label for="username">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>      
+                        用户名
+                  </label>
+                  <input type="text" class="form-control" id="username" placeholder="username" name="username">
+            </div>
+            <div class="form-group">
+                  <label for="password">
+                        <span class="
+                        glyphicon glyphicon-piggy-bank" aria-hidden="true"> </span>      
+                        密     码
+                  </label>
+                  <input type="text" class="form-control" id="password" placeholder="password" name="password">
+            </div>
+            <button type="submit" id="submit" class="btn btn-primary">确认登陆</button>
+          </form>
+
+                  </div>
+           </div>
+           <div class="footer">
+           		<img src="../img/dibu.jpg" alt="" />
+           </div>
+      </div>
+      <script>
+            // 1. 创建构造函数;
+            function Tab(btn_selector  , content_selector ){
+                  // 写属性;
+                  // 当前显示的下标;
+                  this.index = 0;
+                  this.btns = document.querySelectorAll(btn_selector);
+                  this.contents = document.querySelectorAll(content_selector);
+            }     
+            // 初始化功能;
+            Tab.prototype.init = function(event_type){
+
+                  this.event_type = event_type ? event_type : "click";
+                  // 调用核心的方法;
+                  // 根据参数做相应的判断决定调用哪些功能;
+                  this.btns = Array.from(this.btns);
+                  this.contents = Array.from(this.contents);
+
+                  this.bindEvent();
+            }
+            // 绑定事件功能;
+            Tab.prototype.bindEvent = function(){
+                  this.btns.forEach((item,index)=>{
+                        // console.log(this); // this 指向实例化对象;
+                        item.addEventListener(this.event_type,this.changeIndex.bind(this,index))
+
+                        item.addEventListener(this.event_type,this.changeClass.bind(this));
+                  });
+            }
+            // 1. 改变Index;
+            // 2. 根据index 添加修改类名;
+            Tab.prototype.changeIndex = function(index){
+                  // console.log(index);
+                  this.index = index;
+                  // 更新了index;
+            }
+            Tab.prototype.changeClass = function(){
+                  // 1. 清空;
+                  // 2. 给对应下标去添加class;
+                  this.contents.forEach((item , index)=>{
+                        item.className = item.className.replace(/\sactive/g,"");
+                        this.btns[index].className = "";
+                  })
+
+                  this.contents[this.index].className += " active";
+                  this.btns[this.index].className += " active";
+            }
+            // 编程时遇到问题，不知道怎么联系他们之间的关系;
+
+
+            // 编程步骤: 
+            
+            // 1. 创建关键变量 2. 选择元素;
+
+            // var nowIndex = 
+            // var ele = document
+
+            // 实例化.bindEvent()
+
+            var tab = new Tab(".button-wrap button",".content-box");
+            tab.init("mouseenter");
+            
+            //正则
+            
+             // 阻止默认事件;
+             var register_form = document.getElementById("register_form");
+             register_form.onsubmit = function(evt){
+                  var e = evt || window.event;
+                  e.preventDefault();
+             }
+            
+
+             // 点击发送数据;
+             var submit = document.getElementById("submit");
+             submit.addEventListener("click",login);
+
+             var username = document.getElementById("username");
+             var password = document.getElementById("password");
+
+             function login(){
+                  // 1. 获取 input 之中的值;
+                  var usr_str = username.value;
+                  var pwd_str = password.value;
+
+                  // 2. 调用 ajax 封装 实现数据发送;
+
+                  // 根据接口文档定义的一个数据对象;
+                  var data = {
+                        username : usr_str,
+                        password : pwd_str
+                  }
+
+                  ajaxPost("file:///D:/WWW/0109/interface/login.php",data)
+                  .then(function(res){  // res => xhr.response;
+                        console.log(res);
+                  })
+
+             }
+
+             function ajaxPost(url,data){
+
+                  return new Promise(function(resolve,reject){
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("POST",url);
+                        xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+                        // 现在的data是一个对象, 但是根据我们的设置我们要把data转换成一个对象;
+
+                        var data_str = "";
+                        for(var attr in data){
+                              if(data_str.length !== 0){
+                                  data_str += "&";
+                              }
+                              data_str += attr + "=" + data[attr];
+                        }
+                        // {username : 123456, password :12346};
+
+                        xhr.send(data_str);
+
+                        xhr.onreadystatechange = function(){
+                              if(xhr.readyState === 4 && xhr.status === 200){
+                                    resolve(xhr.response);
+                              }
+                        }
+
+                  })
+             }
+   
+
+
+      </script>
+</body>
+</html>
+<script src="../libs/jquery.min.js"></script>
+<script src="../libs/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+<script src="../libs/login.js" type="text/javascript" charset="utf-8"></script>
